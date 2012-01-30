@@ -30,8 +30,8 @@ class DataConnector(service.Service):
 
         self.matcher = pathmatch.Matcher()
         # TODO: this needs to happen automatically
-        self.matcher[changes.Change.pathPattern] = changes.Change(self)
-        self.matcher[changes.Changes.pathPattern] = changes.Changes(self)
+        self.matcher[changes.Change.pathPattern] = changes.Change(master)
+        self.matcher[changes.Changes.pathPattern] = changes.Changes(master)
 
     def get(self, options, path):
         endpoint, kwargs = self.matcher[path]

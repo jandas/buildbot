@@ -19,6 +19,7 @@ from buildbot.util import datetime2epoch
 def _fixChange(change):
     # TODO: make these mods in the DB API
     if change:
+        change = change.copy()
         del change['is_dir']
         change['when_timestamp'] = datetime2epoch(change['when_timestamp'])
     return change
